@@ -1,111 +1,348 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Cartoon Gallery - Fetch API</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cartoon Gallery | Fetch API</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial;
-            background: #f4f4f4;
-            margin: 30px;
-            text-align: center;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #eef2f7;
+            color: #1e293b;
+            min-height: 100vh;
+            padding: 40px 20px;
         }
 
-        button {
-            padding: 10px 20px;
-            border: 0;
-            border-radius: 6px;
-            background: #2563eb;
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 35px rgba(15, 23, 42, 0.12);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #172554, #1d4ed8);
             color: white;
-            cursor: pointer;
-        }
-
-        #message {
-            font-weight: bold;
-            margin: 20px;
-        }
-
-        #cartoons {
+            padding: 30px 35px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
             gap: 20px;
         }
 
-        .card {
-            width: 220px;
-            background: white;
-            padding: 12px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px #bbb;
+        .header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        .card img {
+        .header p {
+            margin-top: 6px;
+            color: #dbeafe;
+            font-size: 14px;
+        }
+
+        .load-btn {
+            background: #ffffff;
+            color: #1d4ed8;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .load-btn:hover {
+            background: #dbeafe;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        .status {
+            margin: 25px 35px 20px;
+            padding: 14px 18px;
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            border-radius: 6px;
+            color: #475569;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        
+        .table-container {
+            padding: 0 35px 35px;
+            overflow-x: auto;
+        }
+
+        table {
             width: 100%;
-            height: 130px;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: #1e293b;
+            color: white;
+        }
+
+        th {
+            padding: 16px;
+            text-align: left;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: middle;
+            font-size: 15px;
+        }
+
+        tbody tr {
+            transition: 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: #f1f5f9;
+        }
+
+        
+        .number {
+            width: 70px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        
+        .cartoon-img {
+            width: 110px;
+            height: 70px;
             object-fit: cover;
             border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            display: block;
         }
 
-        .card h3 {
-            margin: 10px 0;
+    
+        .title {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Empty message */
+        .empty {
+            text-align: center;
+            padding: 50px 20px;
+            color: #94a3b8;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 18px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .load-btn {
+                width: 100%;
+            }
+
+            .status {
+                margin: 20px;
+            }
+
+            .table-container {
+                padding: 0 20px 25px;
+            }
+
+            th,
+            td {
+                padding: 12px;
+            }
+
+            .cartoon-img {
+                width: 85px;
+                height: 55px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<h1>Cartoon Gallery</h1>
+    <div class="container">
 
-<button onclick="loadCartoons()">Load Cartoons</button>
+        <!-- Header -->
+        <div class="header">
+            <div>
+                <h1>🎬 Cartoon Gallery</h1>
+                <p>Browse cartoon information fetched using the Fetch API</p>
+            </div>
 
-<p id="message">Click the button to load cartoons...</p>
+            <button class="load-btn" onclick="loadCartoons()">
+                Load Cartoons
+            </button>
+        </div>
 
-<div id="cartoons"></div>
+        <!-- Status -->
+        <div id="message" class="status">
+            Click "Load Cartoons" to display the cartoon list.
+        </div>
 
-<script>
+        <!-- Table -->
+        <div class="table-container">
 
-function loadCartoons() {
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Preview</th>
+                        <th>Cartoon Title</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
 
-    let message = document.querySelector("#message");
-    let cartoons = document.querySelector("#cartoons");
+                <tbody id="cartoons">
+                    <tr>
+                        <td colspan="4" class="empty">
+                            No cartoons loaded yet.
+                        </td>
+                    </tr>
+                </tbody>
 
-    message.textContent = "⏳ Loading cartoons...";
-    cartoons.innerHTML = "";
+            </table>
 
-    fetch("https://raw.githubusercontent.com/samyak2403/daily-movies-api/main/movies/cartoons/cartoons.json")
+        </div>
 
-    .then(response => {
+        <!-- Footer -->
+        <div class="footer">
+            Cartoon Gallery &nbsp;•&nbsp; Powered by Fetch API
+        </div>
 
-        if (!response.ok)
-            throw new Error("Failed to load cartoon data");
+    </div>
 
-        return response.json();
-    })
 
-    .then(data => {
+    <script>
 
-        data.movies.forEach(cartoon => {
+        function loadCartoons() {
 
-            cartoons.innerHTML += `
-                <div class="card">
-                    <img src="${cartoon.thumbnail}" alt="${cartoon.title}">
-                    <h3>${cartoon.title}</h3>
-                </div>
-            `;
-        });
+            const message = document.querySelector("#message");
+            const cartoons = document.querySelector("#cartoons");
 
-        message.textContent =
-            `✅ ${data.movies.length} cartoons loaded`;
-    })
+            message.textContent = "⏳ Loading cartoon data...";
+            cartoons.innerHTML = "";
 
-    .catch(error => {
+            fetch("https://raw.githubusercontent.com/samyak2403/daily-movies-api/main/movies/cartoons/cartoons.json")
 
-        message.textContent = "❌ " + error.message;
-    });
-}
+                .then(response => {
 
-</script>
+                    if (!response.ok) {
+                        throw new Error("Failed to load cartoon data");
+                    }
+
+                    return response.json();
+                })
+
+                .then(data => {
+
+                    data.movies.forEach((cartoon, index) => {
+
+                        cartoons.innerHTML += `
+                            <tr>
+                                <td class="number">
+                                    ${index + 1}
+                                </td>
+
+                                <td>
+                                    <img
+                                        class="cartoon-img"
+                                        src="${cartoon.thumbnail}"
+                                        alt="${cartoon.title}"
+                                    >
+                                </td>
+
+                                <td class="title">
+                                    ${cartoon.title}
+                                </td>
+
+                                <td>
+                                    <span class="badge">
+                                        Cartoon
+                                    </span>
+                                </td>
+                            </tr>
+                        `;
+
+                    });
+
+                    message.textContent =
+                        `✅ ${data.movies.length} cartoons loaded successfully`;
+
+                })
+
+                .catch(error => {
+
+                    cartoons.innerHTML = `
+                        <tr>
+                            <td colspan="4" class="empty">
+                                Unable to load cartoon data.
+                            </td>
+                        </tr>
+                    `;
+
+                    message.textContent = "❌ " + error.message;
+
+                });
+
+        }
+
+    </script>
 
 </body>
 </html>
