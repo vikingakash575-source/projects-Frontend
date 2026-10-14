@@ -1,37 +1,26 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Akash's developer portfolio showcasing skills, projects, and education.">
+    <meta name="theme-color" content="#070817">
 
     <title>Akash | Developer Portfolio</title>
 
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <!-- HEADER AND NAVIGATION -->
-    <header class="site-header">
-        <nav class="navbar" aria-label="Main navigation">
+    <canvas id="particles"></canvas>
 
-            <a href="#home" class="logo">AKASH<span>.</span></a>
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo">&lt;/&gt; AKASH<span>.</span></a>
 
-            <button
-                id="menuBtn"
-                class="menu-btn"
-                type="button"
-                aria-label="Open navigation"
-                aria-expanded="false"
-                aria-controls="navLinks">
-                ☰
-            </button>
+            <button id="menuBtn" aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
 
             <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
@@ -42,28 +31,32 @@
                 <a href="#contact">Contact</a>
             </div>
 
+            <a href="#contact" class="nav-button">Let's Talk ↗</a>
         </nav>
     </header>
 
     <main>
 
-        <!-- 1. HOME / HERO -->
+        <!-- HERO SECTION -->
+
         <section id="home" class="hero section">
 
-            <div class="hero-content">
+            <div class="hero-content reveal">
 
-                <p class="tag">ASPIRING FULL-STACK DEVELOPER</p>
+                <p class="tag">
+                    <span class="live-dot"></span>
+                    ASPIRING FULL-STACK DEVELOPER
+                </p>
 
-                <h1>Hello, I'm <span>Akash</span></h1>
+                <p class="hello">Hello, I'm</p>
 
-                <h2 class="hero-subtitle">
-                    Final-year BCA student
-                </h2>
+                <h1>Akash<span class="gradient">.</span></h1>
+
+                <h2>I build <span id="typing"></span><span class="cursor">|</span></h2>
 
                 <p class="description">
-                    I'm a BCA student learning web development and
-                    programming. I enjoy turning ideas into websites
-                    using code and continuously improving my skills.
+                    I'm a BCA student learning web development and programming.
+                    I enjoy turning ideas into creative websites using code.
                 </p>
 
                 <div class="buttons">
@@ -76,63 +69,136 @@
                     </a>
                 </div>
 
-                <p class="quote">
-                    "My skill is never giving up!"
-                </p>
+                <div class="social-links">
+                    <a href="https://github.com/vikingakash-575"
+                       target="_blank" rel="noopener noreferrer">GH</a>
 
-                <p class="quote-credit">
-                    Always learning new things.
-                </p>
+                    <a href="mailto:viking.akash575@gmail.com">✉</a>
+
+                    <a href="#contact">↗</a>
+                </div>
 
             </div>
 
-            <div class="hero-image">
-                <img
-                    src="c:\Users\svrfgc23\Downloads\WhatsApp Image 2026-10-14 at 10.39.17 AM.jpeg"
-                    alt="Portrait of Akash"
-                    width="280"
-                    height="280">
+            <!-- ANIMATED DEVELOPER DESIGN -->
+
+            <div class="hero-art reveal">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <div class="floating-shape shape-one"></div>
+                <div class="floating-shape shape-two"></div>
+
+                <div class="code-card">
+
+                    <div class="window-header">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <small>developer.js</small>
+                    </div>
+
+                    <div class="code-content">
+                        <p><b>const</b> developer = {</p>
+                        <p>&nbsp;&nbsp;name: <em>'Akash'</em>,</p>
+                        <p>&nbsp;&nbsp;passion: <em>'coding'</em>,</p>
+                        <p>&nbsp;&nbsp;goal: <em>'Full Stack Developer'</em></p>
+                        <p>};</p>
+                        <br>
+                        <p class="comment">// Never stop learning!</p>
+                    </div>
+
+                </div>
+
+                <div class="floating-chip chip-one">&lt;HTML&gt;</div>
+                <div class="floating-chip chip-two">JS()</div>
+                <div class="floating-chip chip-three">#CSS</div>
+
+                <div class="floating-badge">
+                    ✦ Always learning
+                </div>
+
             </div>
 
         </section>
 
-        <!-- 2. ABOUT ME -->
-        <section id="about" class="section">
+
+        <!-- ABOUT SECTION -->
+
+        <section id="about" class="section reveal">
 
             <p class="tag">01 / ABOUT ME</p>
 
-            <h2>Curious mind. <span>Builder in progress.</span></h2>
+            <h2>
+                Curious mind.<br>
+                <span class="gradient">Builder in progress.</span>
+            </h2>
 
-            <div class="about-content">
-                <p>
-                    I'm currently pursuing a Bachelor of Computer
-                    Applications (BCA) at SVR First Grade College.
-                    I'm developing my programming and web development
-                    skills through learning and personal projects.
-                </p>
+            <div class="about-layout">
 
-                <p>
-                    I'm a fresher who is eager to learn new technologies,
-                    solve problems, and gain practical experience
-                    through software and web development projects.
-                </p>
+                <div>
+                    <p>
+                        I'm currently pursuing a Bachelor of Computer
+                        Applications (BCA). I'm developing my programming
+                        and web development skills through learning
+                        and personal projects.
+                    </p>
+
+                    <p>
+                        I'm a fresher and have not listed any professional
+                        experience or internships. My goal is to become
+                        a skilled software developer.
+                    </p>
+
+                    <h3 class="signature">Build. Learn. Grow. ✦</h3>
+                </div>
+
+                <div class="stats">
+
+                    <div class="stat-card">
+                        <span>⌘</span>
+                        <h3>3+</h3>
+                        <p>Core web technologies</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>↗</span>
+                        <h3>02</h3>
+                        <p>Personal projects</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>✦</span>
+                        <h3>∞</h3>
+                        <p>Things to learn</p>
+                    </div>
+
+                </div>
+
             </div>
 
         </section>
 
-        <!-- 3. SKILLS -->
-        <section id="skills" class="section">
+
+        <!-- SKILLS SECTION -->
+
+        <section id="skills" class="section reveal">
 
             <p class="tag">02 / MY TOOLKIT</p>
 
-            <h2>Skills I'm learning</h2>
+            <h2>Skills I'm <span class="gradient">learning.</span></h2>
 
-            <div class="grid skills-grid">
+            <p class="description">
+                Technologies I'm exploring through practice and projects.
+            </p>
+
+            <div class="grid">
 
                 <article class="card">
+                    <div class="skill-icon"> &lt;/&gt; </div>
                     <h3>Web Development</h3>
-
-                    <p>Building and styling websites.</p>
+                    <p>Creating and styling websites.</p>
 
                     <div class="chips">
                         <span>HTML</span>
@@ -142,9 +208,9 @@
                 </article>
 
                 <article class="card">
+                    <div class="skill-icon purple-icon">{ }</div>
                     <h3>Programming</h3>
-
-                    <p>Learning programming fundamentals.</p>
+                    <p>Learning programming logic and problem solving.</p>
 
                     <div class="chips">
                         <span>C</span>
@@ -154,9 +220,9 @@
                 </article>
 
                 <article class="card">
+                    <div class="skill-icon pink-icon">▤</div>
                     <h3>Database</h3>
-
-                    <p>Learning database concepts and queries.</p>
+                    <p>Working with structured data.</p>
 
                     <div class="chips">
                         <span>SQL</span>
@@ -167,30 +233,29 @@
 
         </section>
 
-        <!-- 4. PROJECTS -->
-        <section id="projects" class="section">
+
+        <!-- PROJECTS SECTION -->
+
+        <section id="projects" class="section reveal">
 
             <p class="tag">03 / MY WORK</p>
 
-            <h2>Projects I've worked on</h2>
+            <h2>Featured <span class="gradient">Projects.</span></h2>
 
-            <p class="section-description">
-                Here are some of my student projects. Their descriptions
-                should reflect the features actually implemented.
-            </p>
+            <div class="grid">
 
-            <div class="grid projects-grid">
+                <article class="card project-card">
 
-                <article class="card project">
+                    <span class="project-number">01</span>
 
-                    <div class="project-icon">PROJECT 01</div>
+                    <p class="project-type">STUDENT PROJECT</p>
 
                     <h3>Attendance Management System</h3>
 
                     <p>
-                        A student project designed to help manage
-                        attendance records. Update this description
-                        with the features you have implemented.
+                        A student project created using HTML, CSS, and
+                        JavaScript. Add the features you have actually
+                        implemented in your application.
                     </p>
 
                     <div class="chips">
@@ -199,26 +264,26 @@
                         <span>JavaScript</span>
                     </div>
 
-                    <a
-                        class="repo-link"
-                        href="https://github.com/vikingakash575-source/Attendance-management-system-.git"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        View GitHub profile ↗
+                    <a href="https://github.com/vikingakash-575"
+                       target="_blank" rel="noopener noreferrer"
+                       class="project-link">
+                        View GitHub ↗
                     </a>
 
                 </article>
 
-                <article class="card project">
 
-                    <div class="project-icon">PROJECT 02</div>
+                <article class="card project-card">
+
+                    <span class="project-number">02</span>
+
+                    <p class="project-type">WEB DESIGN PROJECT</p>
 
                     <h3>Fashion Store</h3>
 
                     <p>
-                        A web project focused on a fashion shopping
-                        experience. Add details about the pages and
-                        features you have actually developed.
+                        A web project built using HTML, CSS, and JavaScript.
+                        Add details that match your actual project.
                     </p>
 
                     <div class="chips">
@@ -227,12 +292,10 @@
                         <span>JavaScript</span>
                     </div>
 
-                    <a
-                        class="repo-link"
-                        href="https://github.com/vikingakash-575"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        View GitHub profile ↗
+                    <a href="https://github.com/vikingakash-575"
+                       target="_blank" rel="noopener noreferrer"
+                       class="project-link">
+                        View GitHub ↗
                     </a>
 
                 </article>
@@ -241,22 +304,22 @@
 
         </section>
 
-        <!-- 5. EDUCATION -->
-        <section id="education" class="section">
+
+        <!-- EDUCATION SECTION -->
+
+        <section id="education" class="section reveal">
 
             <p class="tag">04 / EDUCATION</p>
 
-            <h2>My education</h2>
+            <h2>My <span class="gradient">Education.</span></h2>
 
-            <div class="education-list">
+            <div class="grid">
 
-                <article class="card education-card">
+                <article class="card">
 
                     <p class="tag">2024 — 2027 (EXPECTED)</p>
 
-                    <h3>
-                        Bachelor of Computer Applications (BCA)
-                    </h3>
+                    <h3>Bachelor of Computer Applications</h3>
 
                     <p>SVR First Grade College (SVRFGC)</p>
 
@@ -266,9 +329,9 @@
 
                 </article>
 
-                <article class="card education-card">
+                <article class="card">
 
-                    <p class="tag">PRE-UNIVERSITY EDUCATION</p>
+                    <p class="tag">COMPLETED</p>
 
                     <h3>Class 12 — Science</h3>
 
@@ -282,37 +345,121 @@
 
         </section>
 
-        <!-- 6. CONTACT -->
-        <section id="contact" class="section">
+
+        <!-- CONTACT SECTION -->
+
+        <section id="contact" class="section reveal">
 
             <p class="tag">05 / GET IN TOUCH</p>
 
-            <h2>Let's <span>connect.</span></h2>
+            <h2>Let's <span class="gradient">connect.</span></h2>
 
-            <p class="section-description">
-                Connect with me about learning, coding, and projects.
-                I'm always interested in learning and exploring new ideas.
+            <p class="description">
+                Have an idea or want to discuss a project? Send me a message.
             </p>
 
-            <div class="contact-list">
+            <div class="contact-layout">
 
-                <a href="mailto:viking.akash575@gmail.com">
-                    <span class="contact-label">EMAIL</span>
-                    <span>viking.akash575@gmail.com</span>
-                </a>
+                <div class="contact-details">
 
-                <a href="tel:+917338596944">
-                    <span class="contact-label">PHONE</span>
-                    <span>+91 73385 96944</span>
-                </a>
+                    <div class="contact-item">
+                        <span>✉</span>
+                        <div>
+                            <small>Email</small>
+                            <a href="mailto:viking.akash575@gmail.com">
+                                viking.akash575@gmail.com
+                            </a>
+                        </div>
+                    </div>
 
-                <a
-                    href="https://github.com/vikingakash-575"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <span class="contact-label">GITHUB</span>
-                    <span>vikingakash-575 ↗</span>
-                </a>
+                    <div class="contact-item">
+                        <span>☎</span>
+                        <div>
+                            <small>Phone</small>
+                            <a href="tel:+917338596944">
+                                +91 73385 96944
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>GH</span>
+                        <div>
+                            <small>GitHub</small>
+                            <a href="https://github.com/vikingakash-575"
+                               target="_blank" rel="noopener noreferrer">
+                                vikingakash-575 ↗
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <form id="contactForm" class="contact-form">
+
+                    <div class="form-row">
+
+                        <label>
+                            Full Name *
+                            <input type="text" name="name"
+                                   placeholder="Your name"
+                                   autocomplete="name"
+                                   maxlength="100" required>
+                        </label>
+
+                        <label>
+                            Email Address *
+                            <input type="email" name="email"
+                                   placeholder="you@example.com"
+                                   autocomplete="email"
+                                   maxlength="150" required>
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <label>
+                            Phone Number
+                            <input type="tel" name="phone"
+                                   placeholder="Your phone number"
+                                   autocomplete="tel"
+                                   maxlength="30">
+                        </label>
+
+                        <label>
+                            Subject *
+                            <select name="subject" required>
+                                <option value="">Choose a subject</option>
+                                <option>Project Collaboration</option>
+                                <option>Web Development</option>
+                                <option>Learning and Coding</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+
+                    </div>
+
+
+                    <label>
+                        Message *
+                        <textarea name="message" rows="5"
+                                  placeholder="Write your message..."
+                                  maxlength="3000" required></textarea>
+                    </label>
+
+                    <button type="submit" class="btn primary">
+                        Prepare Email ↗
+                    </button>
+
+                    <p id="formMessage" class="form-message"
+                       role="status" aria-live="polite">
+                        Your email app will open with a prepared message.
+                    </p>
+
+                </form>
 
             </div>
 
@@ -320,26 +467,20 @@
 
     </main>
 
+
     <!-- FOOTER -->
-    <footer class="footer">
 
-        <p>Built with curiosity and code.</p>
+    <footer>
+        <div class="footer-content">
+            <a href="#home" class="logo">AKASH<span>.</span></a>
 
-        <p>
-            &copy; <span id="year"></span> Akash. All rights reserved.
-        </p>
+            <p>Built with curiosity and code.</p>
 
-        <a href="#home">Back to top ↑</a>
+            <p>© <span id="year"></span> Akash</p>
 
+            <a href="#home" class="back-top">Back to top ↑</a>
+        </div>
     </footer>
-
-    <!-- ACCESSIBLE NOTIFICATION -->
-    <div
-        id="toast"
-        class="toast"
-        role="status"
-        aria-live="polite">
-    </div>
 
 </body>
 </html>
